@@ -20,8 +20,8 @@ class BankingService(
         return client
     }
 
-    fun isUserRegistered(email: String): Boolean {
-        return clientRepository.findByEmail(email).isPresent
+    fun isUserRegistered(email: String, password: String): Boolean {
+        return clientRepository.findByEmail(email).map { it.password == password }.orElse(false)
     }
 
     fun getAccountDetails(accountId: Long): Account {

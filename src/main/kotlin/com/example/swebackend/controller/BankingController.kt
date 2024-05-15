@@ -17,8 +17,8 @@
         }
 
         @GetMapping("/isRegistered")
-        fun isUserRegistered(@RequestParam email: String): ResponseEntity<Boolean> {
-            val isRegistered = bankingService.isUserRegistered(email)
+        fun isUserRegistered(@RequestParam email: String, @RequestParam password: String): ResponseEntity<Boolean> {
+            val isRegistered = bankingService.isUserRegistered(email, password )
             return ResponseEntity.ok(isRegistered)
         }
 
